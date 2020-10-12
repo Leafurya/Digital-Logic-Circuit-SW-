@@ -7,20 +7,29 @@ typedef struct _bit{
 	unsigned int bit : 1;
 }Bit;
 
-char And(char in1,char in2){
+char AND(char in1,char in2){
 	return in1&in2;
 }
-char Or(char in1,char in2){
+char OR(char in1,char in2){
 	return in1|in2;
 }
-char Not(char in){
+char NOT(char in){
 	return !in;
 }
-char Nor(char in1,char in2){
-	return Not(Or(in1,in2));
+char NOR(char in1,char in2){
+	return NOT(OR(in1,in2));
+}
+char NAND(char in1,char in2){
+	return NOT(AND(in1,in2));
+}
+char XOR(char in1,char in2){
+	return OR(AND(NOT(in1),in2),AND(in1,NOT(in2)));
+}
+char XNOR(char in1,char in2){
+	return OR(AND(NOT(in1),NOT(in2)),AND(in1,in2));
 }
 
-void TruthTable(int inCount,void (*func)(char *ins)){
+void TruthTable(int inCount,char (*gate)(char *ins)){
 	int bits=0, tbits=0;
 	int insCount=pow(2,inCount);
 	char *ins=(char *)calloc(inCount,sizeof(char));
@@ -33,10 +42,13 @@ void TruthTable(int inCount,void (*func)(char *ins)){
 			ins[i]=(char)bit.bit;
 			tbits=tbits>>1;
 		}
+		for(i=inCount-1;i>=0;i--){
+			printf("%d ",ins[i]);
+		}
 		bits++;
 		tbits=bits;
 		bit.bit=0;
-		func(ins);
+		printf("%d\n",gate(ins));
 	}
 	free(ins);
 }

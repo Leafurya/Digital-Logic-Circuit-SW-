@@ -3,11 +3,13 @@
 
 #include "gate.h"
 
-void func(char *ins){
-	printf("%d %d %d\n",ins[1],ins[0],Nor(ins[0],ins[1]));
-}
+char TruthTableFunc(char *in);
 
 int main() {
-	TruthTable(2,func);
+	TruthTable(2,TruthTableFunc);
 	return 0;
+}
+
+char TruthTableFunc(char *in){
+	return XNOR(in[0],in[1]);
 }

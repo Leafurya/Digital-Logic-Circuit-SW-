@@ -1,12 +1,13 @@
 #ifndef _gate__h_
 #define _gate__h_
 
-char And(char in1,char in2);
-char Or(char in1,char in2);
-char Not(char in);
-char Nor(char in1,char in2);
+char AND(char in1,char in2);
+char OR(char in1,char in2);
+char NOT(char in);
+char NOR(char in1,char in2);
+char NAND(char in1,char in2);
+char XOR(char in1,char in2);
 
-
-void TruthTable(int inCount,void (*func)(char *ins));
+void TruthTable(int inCount,char (*gate)(char *ins));
 
 #endif
