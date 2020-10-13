@@ -29,26 +29,24 @@ char XNOR(char in1,char in2){
 	return OR(AND(NOT(in1),NOT(in2)),AND(in1,in2));
 }
 
-void TruthTable(int inCount,char (*gate)(char *ins)){
-	int bits=0, tbits=0;
-	int insCount=pow(2,inCount);
-	char *ins=(char *)calloc(inCount,sizeof(char));
-	Bit bit;
-	int i,j;
-	
-	for(j=0;j<insCount;j++){
-		for(i=0;i<inCount;i++){
-			bit.bit=tbits;
-			ins[i]=(char)bit.bit;
-			tbits=tbits>>1;
-		}
-		for(i=inCount-1;i>=0;i--){
-			printf("%d ",ins[i]);
-		}
-		bits++;
-		tbits=bits;
-		bit.bit=0;
-		printf("%d\n",gate(ins));
-	}
-	free(ins);
+void AND_TTF(char in){
+	printf("%d\n",AND(BitPOP(&in),BitPOP(&in)));
+}
+void OR_TTF(char in){
+	printf("%d\n",OR(BitPOP(&in),BitPOP(&in)));
+}
+void NOT_TTF(char in){
+	printf("%d\n",NOT(BitPOP(&in)));
+}
+void NOR_TTF(char in){
+	printf("%d\n",NOR(BitPOP(&in),BitPOP(&in)));
+}
+void NAND_TTF(char in){
+	printf("%d\n",NAND(BitPOP(&in),BitPOP(&in)));
+}
+void XOR_TTF(char in){
+	printf("%d\n",XOR(BitPOP(&in),BitPOP(&in)));
+}
+void XNOR_TTF(char in){
+	printf("%d\n",XNOR(BitPOP(&in),BitPOP(&in)));
 }
