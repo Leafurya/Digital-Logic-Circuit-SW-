@@ -32,7 +32,6 @@ void TruthTable(char *inVal,char *outVal,void (*TruthTableFunc)(char in)){
 	char in,tin;
 	int nIn=strlen(inVal);
 	int nIns=pow(2,nIn);
-	//char *ins=(char *)calloc(inCount,sizeof(char));
 	int i;
 	
 	for(i=0;i<nIn;i++){
@@ -52,5 +51,4 @@ void TruthTable(char *inVal,char *outVal,void (*TruthTableFunc)(char in)){
 		printf("| ");
 		TruthTableFunc(in);
 	}
-	//free(ins);
 }

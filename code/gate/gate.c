@@ -3,10 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-typedef struct _bit{
-	unsigned int bit : 1;
-}Bit;
-
 char AND(char in1,char in2){
 	return in1&in2;
 }
