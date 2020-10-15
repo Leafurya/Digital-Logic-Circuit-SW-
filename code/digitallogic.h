@@ -4,5 +4,6 @@
 #include "gate/gate.h"
 #include "adder/adder.h"
 #include "bit/bit.h"
+#include "coder/coder.h"
 
 #endif

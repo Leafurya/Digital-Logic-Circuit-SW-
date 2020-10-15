@@ -26,23 +26,23 @@ char XNOR(char in1,char in2){
 }
 
 void AND_TTF(char in){
-	printf("%d\n",AND(BitPOP(&in),BitPOP(&in)));
+	printf("%d\n",AND(BitPOP((block *)&in),BitPOP((block *)&in)));
 }
 void OR_TTF(char in){
-	printf("%d\n",OR(BitPOP(&in),BitPOP(&in)));
+	printf("%d\n",OR(BitPOP((block *)&in),BitPOP((block *)&in)));
 }
 void NOT_TTF(char in){
-	printf("%d\n",NOT(BitPOP(&in)));
+	printf("%d\n",NOT(BitPOP((block *)&in)));
 }
 void NOR_TTF(char in){
-	printf("%d\n",NOR(BitPOP(&in),BitPOP(&in)));
+	printf("%d\n",NOR(BitPOP((block *)&in),BitPOP((block *)&in)));
 }
 void NAND_TTF(char in){
-	printf("%d\n",NAND(BitPOP(&in),BitPOP(&in)));
+	printf("%d\n",NAND(BitPOP((block *)&in),BitPOP((block *)&in)));
 }
 void XOR_TTF(char in){
-	printf("%d\n",XOR(BitPOP(&in),BitPOP(&in)));
+	printf("%d\n",XOR(BitPOP((block *)&in),BitPOP((block *)&in)));
 }
 void XNOR_TTF(char in){
-	printf("%d\n",XNOR(BitPOP(&in),BitPOP(&in)));
+	printf("%d\n",XNOR(BitPOP((block *)&in),BitPOP((block *)&in)));
 }

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char BitPOP(char *byte){
+char BitPOP(block *byte){
 	char bit=0;
 	
 	bit=*byte&1;
@@ -11,15 +11,15 @@ char BitPOP(char *byte){
 	
 	return bit;
 }
-void BitPUSH(char *byte,char bit){
+void BitPUSH(block *byte,char bit){
 	*byte<<=1;
 	*byte+=bit;
 }
-char BitTop(char byte){
+char BitTop(block byte){
 	return byte&1;
 }
-char BitReverse(char byte,int size){
-	char bit=0;
+block BitReverse(block byte,int size){
+	block bit=0;
 	
 	for(;size>0;size--){
 		BitPUSH(&bit,BitPOP(&byte));
@@ -29,7 +29,7 @@ char BitReverse(char byte,int size){
 }
 
 void TruthTable(char *inVal,char *outVal,void (*TruthTableFunc)(char in)){
-	char in,tin;
+	block in,tin;
 	int nIn=strlen(inVal);
 	int nIns=pow(2,nIn);
 	int i;

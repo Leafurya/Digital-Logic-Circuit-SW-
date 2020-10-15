@@ -1,6 +1,8 @@
 #ifndef _gate__h_
 #define _gate__h_
 
+#include "../bit/bit.h"
+
 char AND(char in1,char in2);
 char OR(char in1,char in2);
 char NOT(char in);
